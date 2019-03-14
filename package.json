@@ -1,0 +1,30 @@
+{
+  "name": "zonar",
+  "version": "1.0.0",
+  "description": "Simple server that uses file storage for products rather than db",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "watch": "nodemon index.js",
+    "test-watch": "jest --watchAll",
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zonar-angular/server.git"
+  },
+  "keywords": [],
+  "author": "Jen Carrigan",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/zonar-angular/server/issues"
+  },
+  "homepage": "https://github.com/zonar-angular/server#readme",
+  "dependencies": {
+    "babel-env": "^2.4.1",
+    "babel-register": "^6.26.0",
+    "dotenv": "^7.0.0",
+    "express": "^4.16.4",
+    "jest": "^24.5.0"
+  }
+}
