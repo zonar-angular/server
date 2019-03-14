@@ -22,6 +22,7 @@ router.get('/products', (req, res) => {
 });
 
 router.post('/products', (req, res) => {
+  console.log(req.body);
   if(Object.keys(req.body).length === 0) {
     res.statusCode = 400;
     res.statusMessage = 'Bad Request';
@@ -35,3 +36,5 @@ router.post('/products', (req, res) => {
       .catch(console.error);
   }
 });
+
+export default router;

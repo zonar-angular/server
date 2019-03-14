@@ -1,5 +1,5 @@
 import express from 'express';
-import api from './api/api.js';
+import api from './api/api';
 const app = express();
 let isRunning = false;
 

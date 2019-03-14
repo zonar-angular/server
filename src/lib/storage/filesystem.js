@@ -45,10 +45,10 @@ storage.getAll = () => {
 
 storage.save = (data) => {
   return new Promise((resolve, reject) => {
-    if (!data.id) {
-      reject('No ID given.');
+    if (!data.sku) {
+      reject('No SKU given.');
     }
-    let file = `${dataDirectory}/${data.id}.json`;
+    let file = `${dataDirectory}/${data.sku}.json`;
     let text = JSON.stringify(data);
     fs.writeFile(file, text, (err) => {
       if (err) {
