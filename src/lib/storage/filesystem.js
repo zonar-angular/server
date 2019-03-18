@@ -1,7 +1,21 @@
+/* 
+File Storage
+
+Full CRUD file storage for products.
+*/
 import fs from 'fs';
 
 const storage = {};
 const dataDirectory = `${__dirname}/../../data`;
+
+/*
+readFilePromise(filename)
+
+Reads file using fs if can be read, rejects if can't
+
+Parameters: path to file
+Returns: promise
+*/
 
 let readFilePromise = (filename) => {
   return new Promise((resolve, reject) => {
@@ -15,6 +29,16 @@ let readFilePromise = (filename) => {
     });
   });
 };
+
+/*
+getAll()
+
+Gets all files in the data folder to be read,
+pushes them to new object with IDs for keys
+
+Parameters: None
+Returns: Promise
+*/
 
 storage.getAll = () => {
   return new Promise((resolve, reject) => {
@@ -44,20 +68,14 @@ storage.getAll = () => {
   });
 };
 
-storage.getOne = (id) => {
-  return new Promise((resolve, reject) => {
-    let file = `${dataDirectory}/${id}.json`;
-    fs.readFile(file, (err, data) => {
-      if (data) {
-        let obj = JSON.parse(data.toString());
-        resolve(obj);
-      }
-      else {
-        reject(`${id} not found!`);
-      }
-    });
-  });
-};
+/*
+save(data)
+
+Saves a new product to the data folder as a file
+
+Parameters: Product data
+Returns: Promise
+*/
 
 storage.save = (data) => {
   return new Promise((resolve, reject) => {
@@ -75,6 +93,15 @@ storage.save = (data) => {
   });
 };
 
+/*
+delete(id)
+
+Deletes the file in the data folder with a matching ID
+
+Parameters: Product ID
+Returns: Promise
+*/
+
 storage.delete = (id) => {
   return new Promise((resolve, reject) => {
     let file = `${dataDirectory}/${id}.json`;
@@ -86,6 +113,15 @@ storage.delete = (id) => {
     });
   });
 };
+
+/*
+update(id, criteria)
+
+Updates a file in the data folder matching the ID with the passed in criteria
+
+Parameters: Product ID, new product data
+Returns: Promise
+*/
 
 storage.update = (id, criteria) => {
   return new Promise((resolve, reject) => {

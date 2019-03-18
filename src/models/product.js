@@ -1,3 +1,15 @@
+/*
+Product Model
+
+This class constructs and/or calls methods based on API routes
+
+Methods
+save - Saves product as file to data folder
+getAll() - Gets all products
+deleteOne(id) - Deletes file from data folder based on ID
+updateOne(id, criteria) - Updates file from data folder based on ID with criteria
+*/
+
 import storage from '../lib/storage/data-store.js';
 import uuid from 'uuid';
 
@@ -15,10 +27,6 @@ class Product {
 
   static getAll() {
     return storage.getAll();
-  }
-
-  static getOne(id) {
-    return storage.getOne(id);
   }
 
   static deleteOne(id) {
